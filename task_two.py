@@ -1,12 +1,12 @@
 from typing import Callable
 import re
 
-text = "Загальний дохід працівника складається  1005 з декількох частин: 1000.05 як основний дохід,n\
+text = "Загальний дохід працівника 1000 складається 1000.15з декількох частин: 1000.05 як основний дохід,n\
         доповнений додатковими надходженнями 27.05 і 324.05 доларів."
 
 
 def generator_numbers(text: str):
-    pattern = r"\d+(?:\.\d+)?"
+    pattern = r"\b\d+\.\d+\b"
     numbers = re.findall(pattern, text)
     for number in numbers:
         yield float(number)
